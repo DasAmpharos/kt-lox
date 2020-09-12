@@ -27,8 +27,8 @@ fun main(args: Array<String>) {
                 "value" to expr
             ),
             "Binary" to mapOf(
+                "op" to token,
                 "left" to expr,
-                "operator" to token,
                 "right" to expr
             ),
             "Grouping" to mapOf(
@@ -38,12 +38,12 @@ fun main(args: Array<String>) {
                 "value" to any.copy(nullable = true)
             ),
             "Logical" to mapOf(
+                "op" to token,
                 "left" to expr,
-                "operator" to token,
                 "right" to expr
             ),
             "Unary" to mapOf(
-                "operator" to token,
+                "op" to token,
                 "right" to expr
             ),
             "Variable" to mapOf(

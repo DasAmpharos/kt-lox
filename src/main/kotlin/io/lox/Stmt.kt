@@ -32,8 +32,8 @@ sealed class Stmt {
   }
 
   data class Var(
-      val name: Token,
-      val initializer: Expr?
+    val name: Token,
+    val initializer: Expr?
   ) : Stmt() {
     override fun <R> accept(visitor: Visitor<R>): R = visitor.visitVar(this)
   }

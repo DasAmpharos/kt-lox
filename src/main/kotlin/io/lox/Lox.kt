@@ -25,5 +25,6 @@ object Lox {
         if (where != null) s += where
         s += ": $message"
         System.err.println(s)
+        hadError = true
     }
 }

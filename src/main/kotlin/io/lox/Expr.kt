@@ -6,16 +6,16 @@ sealed class Expr {
   abstract fun <R> accept(visitor: Visitor<R>): R
 
   data class Assign(
-      val name: Token,
-      val value: Expr
+    val name: Token,
+    val value: Expr
   ) : Expr() {
     override fun <R> accept(visitor: Visitor<R>): R = visitor.visitAssign(this)
   }
 
   data class Binary(
-      val left: Expr,
-      val operator: Token,
-      val right: Expr
+    val op: Token,
+    val left: Expr,
+    val right: Expr
   ) : Expr() {
     override fun <R> accept(visitor: Visitor<R>): R = visitor.visitBinary(this)
   }
@@ -33,16 +33,16 @@ sealed class Expr {
   }
 
   data class Logical(
-      val left: Expr,
-      val operator: Token,
-      val right: Expr
+    val op: Token,
+    val left: Expr,
+    val right: Expr
   ) : Expr() {
     override fun <R> accept(visitor: Visitor<R>): R = visitor.visitLogical(this)
   }
 
   data class Unary(
-      val operator: Token,
-      val right: Expr
+    val op: Token,
+    val right: Expr
   ) : Expr() {
     override fun <R> accept(visitor: Visitor<R>): R = visitor.visitUnary(this)
   }
